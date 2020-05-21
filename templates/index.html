@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+        <script src="{{url_for('static', filename='js/game.js')}}"></script> 
+        {% if title %}
+        <title>{{ title }}</title>
+        {% else %}
+        <title>Learn Icelandic</title>
+        {% endif %}
+    </head>
+    <body>
+        <div class="grid-container">
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <p>Sigur!</p>
+                    <button class="button_newgame" type="button" onClick="close_and_restart(this.id)" id="new_game" name="new_game">Start new game!</button>
+                </div>
+            </div> 
+            
+            <div class="sidebar"> <div class="sidebar-head"> Select a word list: <br> </div>
+                <form action="" method="POST">
+                    {% for vocabulary_button in vocabulary_buttons %}
+                    <input type="checkbox" id="{{vocabulary_button.vocab}}" name="vocab" value="{{vocabulary_button.vocab}}">
+                    <label for="{{vocabulary_button.vocab}}"> {{vocabulary_button.vocab}}: {{vocabulary_button.num_words}} words. </label><br>
+                    {% endfor %}
+                    How many words do you want to draw? Default: 6. Maximum:12.
+                    <input type="number" id="num_pairs" name="num_pairs"  min="1" max="12" value="6"></input>
+                    <input type="submit" name="setup" value="Start game!"></input>
+                </form>
+            </div>
+
+            <div class="header">
+                <div class="header-text">Learn Icelandic Words by Clicking Around!</div>
+            </div>
+            
+            <div class="main">
+                Your word lists:
+                {% for selected_list in selected_lists %}
+                <b> {{selected_list}}</b>,
+                {% endfor %} 
+                totally {{nwords}} words.<br>
+                You draw {{draw}} words and their translations.
+            </div>
+            
+            <div class="game">
+                {% for button_game in buttons_game %}
+                <button class="button_gamefield" type="button" onClick="register_click(this.id)" id="{{button_game.id}}" name="{{button_game.name}}">{{button_game.name}}</button>
+                {% endfor %}
+            </div>
+            
+            <div class="footer"> (c) 2020, Anastasia Eskova</div>
+        </div>
+    </body>
+</html>
+
+

@@ -1,0 +1,118 @@
+.grid-container {
+    display: grid;
+    max-width: 1200px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr 1.5fr repeat(5, 2fr) 0.5fr;
+    gap: 5px 7px;
+    grid-template-areas:    "header header header header header header header" 
+                            "sidebar sidebar main main main main main" 
+                            "sidebar sidebar game game game game game" 
+                            "sidebar sidebar game game game game game" 
+                            "sidebar sidebar game game game game game" 
+                            "sidebar sidebar game game game game game" 
+                            "sidebar sidebar game game game game game" 
+                            "footer footer footer footer footer footer footer";
+    justify-self: center;
+}
+  
+.footer { 
+    grid-area: footer; 
+    background-color: lightseagreen;
+    text-align: center;
+    font-size: normal;
+}
+  
+.sidebar { 
+    grid-area: sidebar; 
+    background-color: rgb(104, 6, 104);
+    font-size: 18px;
+    color: white;
+}
+
+.sidebar-head {
+    font-size: 24px;
+}
+
+.main { 
+    grid-area: main;
+    background-color: lightblue; 
+    font-size: large;
+}
+  
+.header {
+    display: inline grid; 
+    grid-area: header; 
+    background-color: lightseagreen;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1fr;
+    grid-template-areas: "header-text header-text header-text header-text header-text header-text header-text";
+}
+
+.header-text {
+    display: flex;
+    grid-area: header-text;
+    font-family: verdana;
+    font-size: 20px;
+    color: white;
+    place-content: center center;
+}
+
+.game {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 2fr);
+    gap: 10px 15px;
+    grid-template-areas: ". . . . ." ". . . . ." ". . . . ." ". . . . ." ". . . . .";
+    grid-area: game;
+    background-color: lightyellow;
+}
+
+.button_gamefield {
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background-color: darkslategrey;
+    color: white;
+    align-self: stretch;
+    justify-self: stretch;
+    font-size: larger ;
+}
+
+.button_gamefield:hover {
+    border-radius: 4px;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    background-color: slategray;
+    color: white;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    grid-column-start: 1;
+    grid-column-end:  8;
+    grid-row-start: 1;
+    grid-row-end:  9;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #008b69f3;
+    justify-content: center;
+    margin: 15% auto;  /*15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+    color: white;
+    font-size: 24px;
+    font-family: Arial;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+  

@@ -1,0 +1,8 @@
+---
+applications:
+ - name: memorygame
+   random-route: true
+   memory: 128M
+   buildpacks:
+   - python_buildpack
+   command: python memo_game.py
