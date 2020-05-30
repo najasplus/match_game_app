@@ -90,7 +90,7 @@
     grid-column-start: 1;
     grid-column-end:  8;
     grid-row-start: 1;
-    grid-row-end:  9;
+    grid-row-end:  8;
     z-index: 1; /* Sit on top */
     left: 0;
     top: 0;
@@ -103,9 +103,9 @@
   
   /* Modal Content/Box */
   .modal-content {
-    background-color: #008b69f3;
+    background-color: #008b68;
     justify-content: center;
-    margin: 15% auto;  /*15% from the top and centered */
+    margin: 10px auto;  /*15% from the top and centered */
     padding: 20px;
     border: 1px solid #888;
     width: 30%; /* Could be more or less, depending on screen size */

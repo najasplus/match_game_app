@@ -36,9 +36,17 @@ def parse_tab_delimited(input_tsv):
 
 def draw_elements(total_l1, total_l2, num_elements):
     zipped_lists = list(zip(total_l1, total_l2))
-    draw_indices = random.sample(range(0, len(total_l1)), num_elements)
+    #dedup lists
+    sorted_zipped = sorted(zipped_lists, key = lambda x: x[1])
+    deduped_indices = [i for i in range(0, len(total_l1)) if sorted_zipped[i][1] != sorted_zipped[i-1][1] ]
+    dedup_lists =  [ sorted_zipped[j] for j in deduped_indices ]
+    print(dedup_lists)
+    print(len(dedup_lists))
+    print(num_elements)
+        
+    draw_indices = random.sample(range(0, len(dedup_lists)), num_elements)
 
-    list_subset = [zipped_lists[i] for i in draw_indices] 
+    list_subset = [dedup_lists[i] for i in draw_indices] 
 
     out_list1, out_list2 = zip(*list_subset)
 #    print(out_list1)

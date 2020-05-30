@@ -61,12 +61,16 @@ def index():
             total_words += item['num_words']
 
 #    print(total_list1)
+    #make sure that number of words to draw is not greater than length of the selected list
+    if draw_words > len(total_list1):
+        draw_words = len(total_list1)
+
     sel_list1, sel_list2 = mf.draw_elements(total_list1, total_list2, draw_words)
     buttons_game=generage_words_buttoms_attr(sel_list1, sel_list2)
     #mf.generate_layout()
     #mf.start_game()
 
-    return render_template('index.html', title='Home', 
+    return render_template('index.html',  
                             vocabulary_buttons=vocabulary_buttons, 
                             selected_lists=vocab_lists, nwords=total_words, draw=draw_words,
                             buttons_game=buttons_game)
